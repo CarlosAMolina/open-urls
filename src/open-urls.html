@@ -12,26 +12,10 @@
     <div id="popup-content">
       <div>
         <p>Write the URLs to open</p>
-        <textarea id="inputUrls" class="input" type="text" style="width:50%" rows="7"></textarea>
+        <textarea id="inputUrls" type="text"></textarea>
       </div>
-      <button id="buttonCopy" title="Copy to clipboard" class="button" style="width:18.7%"><img src="/icons/copy.png" alt="Copy URLs"/></button>
-      <button id="buttonOpenUrls" title="Open Urls" class="button" style="width:18.7%"><img src="/icons/globe.png" alt="Open URLs"/></button>
-      <div id="menuConfig" class="backGroundGrey">
-        <p><u>Open all paths</u></p>
-        <button id="buttonOpenPaths" class="buttonOnOff"><div>off</div></button>
-        <div id="menuLazyLoading" class="backGroundGrey">
-          <p>Wait time between opening each tab (milliseconds, integer)</p>
-          <div id="divInputLazyLoading">
-            <input id="inputLazyLoading" class="input" type="text" style="width:82%" rows="1"></input>
-            <button id="buttonAddLazyLoading" title="Update" class="button" style="width:10%"><img src="/icons/ok.png"/></button>
-          </div>
-        </div>
-      </div>
-      <div id="menuRules" class="backGroundGrey hidden">
+      <button id="buttonCopy" title="Copy to clipboard">Copy URLs</button>
+      <button id="buttonOpenUrls" title="Open Urls">Open URLs</button>
     </div>
-    <div id="error-content" class="hidden">
-      <p>Cannot work on this web page.</p>
-    </div>
-    <script type="module" src="open-urls.js"></script>
   </body>
 </html>

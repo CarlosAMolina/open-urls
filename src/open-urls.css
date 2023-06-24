@@ -1,8 +1,11 @@
-.display-flex {
+.user-interface {
     display: flex;
+    flex-direction: column;
 }
 
-.display-grip {
-    display: grid;
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 

@@ -1,20 +1,21 @@
 button {
-  /*Take up as much space as possible*/
-  flex: 1 auto;
+  flex-grow: 1;
 }
 
 textarea {
-  width: 100%;
-}
-
-.user-interface {
-    display: flex;
-    flex-direction: column;
+  flex-grow: 1;
 }
 
 .buttons {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+}
+
+.user-interface {
+  display: flex;
+  flex-direction: column;
+}
+
+.urls {
+    display: flex;
 }
 

@@ -11,18 +11,9 @@ textarea {
   flex-grow: 1;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-}
-
 .user-interface {
   flex: 0 1 700px;
   display: flex;
   flex-direction: column;
-}
-
-.urls {
-    display: flex;
 }
 

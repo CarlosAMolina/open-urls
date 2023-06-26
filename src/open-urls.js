@@ -28,7 +28,8 @@ function getUrlsToOpen(openAllPaths) {
     if (url == '') {
       console.log("Invalid URL, omitting");
     } else {
-      let urlToOpen = getStringDropLastCharacterIfMatched(url, "/");
+      let urlToOpen = getStringDropLeadingAndTrailingSpaces(url);
+      urlToOpen = getStringDropLastCharacterIfMatched(urlToOpen, "/");
       urlToOpen = getUrlWithProtocol(urlToOpen);
       if (openAllPaths === true) {
         let urlsPaths = getUrlsWithPaths(urlToOpen)
@@ -41,6 +42,10 @@ function getUrlsToOpen(openAllPaths) {
     }
   }
   return result;
+}
+
+function getStringDropLeadingAndTrailingSpaces(string){
+  return string.trim();
 }
 
 function getStringDropLastCharacterIfMatched(string, character){

@@ -9,6 +9,7 @@ button {
 
 textarea {
   flex-grow: 1;
+  resize: vertical;
 }
 
 .user-interface {

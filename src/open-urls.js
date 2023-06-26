@@ -1,56 +1,45 @@
 document.addEventListener('click', (eventClick) => {
   let targetId = eventClick.target.id;
   if (targetId == "open-urls") {
-    openUrls();
+    openUrlsInput();
   } else if (targetId == "open-urls-paths" ) {
-    openUrlsAllPaths();
+    openUrlsInputAllPaths();
   }
 });
 
-function openUrls() {
+function openUrlsInput() {
   console.log("Init open URLs");
-  openUrlsInput(false);
+  let urls = getUrlsToOpen(false)
+  openUrls(urls);
 }
 
-function openUrlsAllPaths() {
+function openUrlsInputAllPaths() {
   console.log("Init open URLs all paths");
-  openUrlsInput(true);
+  let urls = getUrlsToOpen(true)
+  openUrls(urls);
 }
 
-function openUrlsInput(openAllPaths) {
+function getUrlsToOpen(openAllPaths) {
   let element = document.querySelector(`#urls-input`);
-  let urls = element.value.split('\n');
-  for (let url of urls) {
+  let urlsInput = element.value.split('\n');
+  let result = [];
+  for (let url of urlsInput) {
     console.log(`Init manage url input: ${url}`);
-    if (url == ''){
+    if (url == '') {
       console.log("Invalid URL, omitting");
     } else {
-      url = getUrlWithProtocol(url);
+      let urlWithProtocol = getUrlWithProtocol(url);
       if (openAllPaths === true) {
-        let urlsPaths = getUrlsWithPaths(url)
+        let urlsPaths = getUrlsWithPaths(urlWithProtocol)
         for (let urlPath of urlsPaths) {
-          openUrl(urlPath);
+          result.push(urlPath);
         }
       } else {
-          openUrl(url);
+          result.push(urlWithProtocol);
       }
     }
   }
-}
-
-/* Open an url and catches possible exception.
-https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-:param url: str, url to check.
-:return null.
-*/
-function openUrl(url){
-  console.log(`Init open url: ${url}`);
-  try{
-    window.open(url);
-  }
-  catch(error){
-    console.error(error);
-  }
+  return result;
 }
 
 function getUrlWithProtocol(url){
@@ -76,4 +65,24 @@ function getUrlsWithPaths(url){
     result = result.reverse();
   }
   return result;
+}
+
+function openUrls(urls) {
+  for (let url of urls) {
+    openUrl(url);
+  }
+}
+/* Open an url and catches possible exception.
+https://developer.mozilla.org/en-US/docs/Web/API/Window/open
+:param url: str, url to check.
+:return null.
+*/
+function openUrl(url){
+  console.log(`Init open url: ${url}`);
+  try{
+    window.open(url);
+  }
+  catch(error){
+    console.error(error);
+  }
 }

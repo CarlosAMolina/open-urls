@@ -1,16 +1,18 @@
 document.addEventListener('click', (eventClick) => {
   let targetId = eventClick.target.id;
-  if (targetId == "open-urls" || targetId == "open-urls-paths" ) {
-    openUrls(targetId);
+  if (targetId == "open-urls") {
+    openUrls();
+  } else if (targetId == "open-urls-paths" ) {
+    openUrlsAllPaths();
   }
 });
 
-function openUrls(targetId) {
+function openUrls() {
   console.log("Init open URLs");
   openUrlsInput(false);
 }
 
-function openUrlsAllPaths(targetId) {
+function openUrlsAllPaths() {
   console.log("Init open URLs all paths");
   openUrlsInput(true);
 }
@@ -24,13 +26,13 @@ function openUrlsInput(openAllPaths) {
       console.log("Invalid URL, omitting");
     } else {
       url = getUrlWithProtocol(url);
-      if (openAllPaths === false) {
-        openUrl(url);
-      } else {
+      if (openAllPaths === true) {
         let urlsPaths = getUrlsWithPaths(url)
         for (let urlPath of urlsPaths) {
           openUrl(urlPath);
         }
+      } else {
+          openUrl(url);
       }
     }
   }

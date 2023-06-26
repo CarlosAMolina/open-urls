@@ -6,19 +6,16 @@ document.addEventListener('click', (eventClick) => {
 });
 
 function openUrls(targetId) {
+  console.log("Init open URLs");
   openUrlsInput(targetId);
 }
 
 function openUrlsAllPaths(targetId) {
+  console.log("Init open URLs all paths");
   openUrlsInput(targetId);
 }
 
 function openUrlsInput(targetId) {
-  if (targetId == "open-urls") {
-    console.log("Init open URLs");
-  } else {
-    console.log("Init open URLs all paths");
-  }
   let element = document.querySelector(`#urls-input`);
   let urls = element.value.split('\n');
   for (let url of urls) {

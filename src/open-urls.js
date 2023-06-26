@@ -28,16 +28,25 @@ function getUrlsToOpen(openAllPaths) {
     if (url == '') {
       console.log("Invalid URL, omitting");
     } else {
-      let urlWithProtocol = getUrlWithProtocol(url);
+      let urlToOpen = getStringDropLastCharacterIfMatched(url, "/");
+      urlToOpen = getUrlWithProtocol(urlToOpen);
       if (openAllPaths === true) {
-        let urlsPaths = getUrlsWithPaths(urlWithProtocol)
+        let urlsPaths = getUrlsWithPaths(urlToOpen)
         for (let urlPath of urlsPaths) {
           result.push(urlPath);
         }
       } else {
-          result.push(urlWithProtocol);
+          result.push(urlToOpen);
       }
     }
+  }
+  return result;
+}
+
+function getStringDropLastCharacterIfMatched(string, character){
+  let result = string;
+  if (result.slice(-1) == character){
+    result = result.substring(0, result.length -1);
   }
   return result;
 }

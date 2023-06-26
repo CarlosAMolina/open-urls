@@ -1,31 +1,35 @@
 document.addEventListener('click', (eventClick) => {
   let targetId = eventClick.target.id;
   if (targetId == "open-urls" || targetId == "open-urls-paths" ) {
-    if (targetId == "open-urls") {
-      console.log("Init open URLs");
+    openUrls(targetId);
+  }
+});
+
+function openUrls(targetId) {
+  if (targetId == "open-urls") {
+    console.log("Init open URLs");
+  } else {
+    console.log("Init open URLs all paths");
+  }
+  let element = document.querySelector(`#urls-input`);
+  let urls = element.value.split('\n');
+  for (let url of urls) {
+    console.log(`Init manage url input: ${url}`);
+    if (url == ''){
+      console.log("Invalid URL, omitting");
     } else {
-      console.log("Init open URLs all paths");
-    }
-    let element = document.querySelector(`#urls-input`);
-    let urls = element.value.split('\n');
-    for (let url of urls) {
-      console.log(`Init manage url input: ${url}`);
-      if (url == ''){
-        console.log("Invalid URL, omitting");
+      url = getUrlWithProtocol(url);
+      if (targetId == "open-urls") {
+        openUrl(url);
       } else {
-        url = getUrlWithProtocol(url);
-        if (targetId == "open-urls") {
-          openUrl(url);
-        } else {
-          let urlsPaths = getUrlsWithPaths(url)
-          for (let urlPath of urlsPaths) {
-            openUrl(urlPath);
-          }
+        let urlsPaths = getUrlsWithPaths(url)
+        for (let urlPath of urlsPaths) {
+          openUrl(urlPath);
         }
       }
     }
   }
-});
+}
 
 /* Open an url and catches possible exception.
 https://developer.mozilla.org/en-US/docs/Web/API/Window/open

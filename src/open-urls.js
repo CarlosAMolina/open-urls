@@ -6,6 +6,14 @@ document.addEventListener('click', (eventClick) => {
 });
 
 function openUrls(targetId) {
+  openUrlsInput(targetId);
+}
+
+function openUrlsAllPaths(targetId) {
+  openUrlsInput(targetId);
+}
+
+function openUrlsInput(targetId) {
   if (targetId == "open-urls") {
     console.log("Init open URLs");
   } else {

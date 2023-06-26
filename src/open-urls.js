@@ -7,15 +7,15 @@ document.addEventListener('click', (eventClick) => {
 
 function openUrls(targetId) {
   console.log("Init open URLs");
-  openUrlsInput(targetId);
+  openUrlsInput(false);
 }
 
 function openUrlsAllPaths(targetId) {
   console.log("Init open URLs all paths");
-  openUrlsInput(targetId);
+  openUrlsInput(true);
 }
 
-function openUrlsInput(targetId) {
+function openUrlsInput(openAllPaths) {
   let element = document.querySelector(`#urls-input`);
   let urls = element.value.split('\n');
   for (let url of urls) {
@@ -24,7 +24,7 @@ function openUrlsInput(targetId) {
       console.log("Invalid URL, omitting");
     } else {
       url = getUrlWithProtocol(url);
-      if (targetId == "open-urls") {
+      if (openAllPaths === false) {
         openUrl(url);
       } else {
         let urlsPaths = getUrlsWithPaths(url)

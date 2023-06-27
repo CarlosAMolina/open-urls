@@ -89,9 +89,7 @@ async function openUrls(urls) {
     var url = urls[i];
     console.log(`Init URL ${i+1}/${urlsLength}: '${url}'`);
     if (i != 0) {
-      console.log(`Init. Wait milliseconds: ${delay_ms}`);
       await sleepMs(delay_ms);
-      console.log('Done. Wait milliseconds');
     }
     openUrl(url);
   }

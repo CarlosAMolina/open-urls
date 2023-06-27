@@ -81,18 +81,33 @@ function getUrlsWithPaths(url){
   return result;
 }
 
-function openUrls(urls) {
-  for (let url of urls) {
+async function openUrls(urls) {
+  let delay_s = document.querySelector(`#delay-input`).valueAsNumber;
+  let delay_ms = delay_s * 1000;
+  let urlsLength = urls.length;
+  for (var i = 0; i < urlsLength; i++) {
+    var url = urls[i];
+    console.log(`Init URL ${i+1}/${urlsLength}: '${url}'`);
+    if (i + 1 != urlsLength) {
+      console.log(`Init. Wait milliseconds: ${delay_ms}`);
+      await sleepMs(delay_ms);
+      console.log('Done. Wait milliseconds');
+    }
     openUrl(url);
   }
 }
+
+// https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
+function sleepMs(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 /* Open an url and catches possible exception.
 https://developer.mozilla.org/en-US/docs/Web/API/Window/open
 :param url: str, url to check.
 :return null.
 */
 function openUrl(url){
-  console.log(`Init open url: ${url}`);
   try{
     window.open(url);
   }

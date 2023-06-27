@@ -12,6 +12,11 @@ textarea {
   resize: vertical;
 }
 
+.delay-ui {
+  display: flex;
+  justify-content: space-between;
+}
+
 .user-interface {
   flex: 0 1 700px;
   display: flex;

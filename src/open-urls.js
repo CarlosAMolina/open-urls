@@ -76,7 +76,7 @@ function getUrlsWithPaths(url){
       let newUrl = `${lastAddedUrl}/${path}`;
       result.push(newUrl);
     }
-    result = result.reverse();
+    result = result.reverse(); // Open the longest URL first.
   }
   return result;
 }

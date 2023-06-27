@@ -4,6 +4,8 @@ document.addEventListener('click', (eventClick) => {
     openUrlsInput();
   } else if (targetId == "open-urls-paths" ) {
     openUrlsInputAllPaths();
+  } else if (targetId == "clean-urls-input" ) {
+    cleanUrlsInput();
   }
 });
 
@@ -112,4 +114,10 @@ function openUrl(url){
   catch(error){
     console.error(error);
   }
+}
+
+function cleanUrlsInput() {
+  console.log('Init clean URLs input');
+  let element = document.querySelector(`#urls-input`);
+  element.value = "";
 }

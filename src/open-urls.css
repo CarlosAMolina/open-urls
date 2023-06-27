@@ -4,7 +4,7 @@ body {
 }
 
 button {
-  flex-grow: 1;
+  flex: 1 1 30px;
 }
 
 textarea {

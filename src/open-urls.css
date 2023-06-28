@@ -1,10 +1,15 @@
+@import url("../base.css");
+
 body {
     display: flex;
     justify-content: center;
 }
 
 button {
-  flex: 1 1 30px;
+  border-right-color: var(--BUTTON-COLOR);
+  border-left-color: var(--BUTTON-COLOR);
+  border-bottom: 1px solid var(--BACKGROUND-COLOR);
+  border-top: 1px solid var(--BACKGROUND-COLOR);
 }
 
 textarea {
@@ -23,49 +28,3 @@ textarea {
   flex-direction: column;
 }
 
-/* TODO replace code below with css in cmoli.es */
-
-:root {
-  --BACKGROUND-COLOR: #1a1a1a;
-  --BUTTON-COLOR: #4caf50;
-  --FONT-SIZE: 16px;
-  --FONT-FAMILY: sans-serif;
-  --YELLOW-COLOR: #b5e853;
-}
-
-body {
-  background-color: var(--BACKGROUND-COLOR);
-  font-family: var(--FONT-FAMILY);
-  color:#eaeaea;
-}
-
-button {
-  color: #fff;
-  background-color: var(--BUTTON-COLOR);
-  font-size: var(--FONT-SIZE);
-  padding: 8px 30px;
-  border-right-color: var(--BUTTON-COLOR);
-  border-left-color: var(--BUTTON-COLOR);
-  border-bottom: 1px solid var(--BACKGROUND-COLOR);
-  border-top: 1px solid var(--BACKGROUND-COLOR);
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-}
-
-button:hover {
-  background-color: #3e8e41;
-  color: white;
-}
-
-input[type=number] {
-  background-color: #EEE5E4;
-  padding: 4px 1px;
-  border: solid var(--YELLOW-COLOR);
-  border-radius: 5px;
-  width: 10em;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--YELLOW-COLOR);
-}

@@ -1,10 +1,5 @@
 @import url("../../../common-sections.css");
 
-body {
-    display: flex;
-    justify-content: center;
-}
-
 button {
   border-right-color: var(--BUTTON-COLOR);
   border-left-color: var(--BUTTON-COLOR);
@@ -20,6 +15,11 @@ textarea {
 .delay-ui {
   display: flex;
   justify-content: space-between;
+}
+
+.main-page {
+  display: flex;
+  justify-content: center;
 }
 
 .user-interface {

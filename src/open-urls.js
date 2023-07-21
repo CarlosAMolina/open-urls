@@ -1,9 +1,11 @@
 document.addEventListener('click', (eventClick) => {
   let targetId = eventClick.target.id;
   if (targetId == "open-urls") {
-    openUrlsInput();
-  } else if (targetId == "open-urls-paths" ) {
-    openUrlsInputAllPaths();
+      if (document.querySelector(`#open-urls-paths-bool`).checked == true) {
+        openUrlsInputAllPaths();
+      } else {
+        openUrlsInput();
+      }
   } else if (targetId == "clean-urls-input" ) {
     cleanUrlsInput();
   }
@@ -121,3 +123,18 @@ function cleanUrlsInput() {
   let element = document.querySelector(`#urls-input`);
   element.value = "";
 }
+
+function run_open_urls_paths_bool(element) {
+  if (element.checked == true) {
+    element.style.background = 'gray';
+    element.style.color = 'lightgray';
+    element.textContent = 'off';
+    element.checked = false;
+  } else {
+    element.style.background = 'green';
+    element.style.color = 'lightgreen';
+    element.textContent = 'on';
+    element.checked = true;
+  }
+}
+

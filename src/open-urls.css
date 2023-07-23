@@ -16,6 +16,10 @@ input[type="checkbox"]:checked {
   box-shadow: 0 0 0 3px var(--YELLOW-COLOR);
 }
 
+button {
+  width: 100%;
+}
+
 .configuration-options {
   display: flex;
   flex-direction: column;
@@ -25,6 +29,10 @@ input[type="checkbox"]:checked {
 .delay-ui {
   display: flex;
   justify-content: space-between;
+}
+
+.hidden {
+  display: none;
 }
 
 .main-page {
@@ -37,4 +45,9 @@ input[type="checkbox"]:checked {
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+}
+
+.open-urls-section {
+  display: flex;
+  flex-direction: column;
 }

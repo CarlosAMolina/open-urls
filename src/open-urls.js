@@ -1,11 +1,12 @@
 function openUrlsInput() {
-  console.log("Init open URLs");
+  console.log('Init open URLs');
   let openAllPaths = document.getElementById('open-all-paths').checked == true;
   console.log(`Configuration. Open URLs all paths: ${openAllPaths}`);
   let urls = getUrlsToOpen(openAllPaths);
   let delayMs = getDelayMsOpenUrls();
   console.log(`Configuration. Open URLs delay: ${delayMs} ms`);
   openUrls(urls, delayMs);
+  showUrlsOpened(urls);
 };
 
 function getUrlsToOpen(openAllPaths) {
@@ -16,9 +17,9 @@ function getUrlsToOpen(openAllPaths) {
     console.log(`Init manage url input: ${url}`);
     let urlToOpen = url.trim(); // Drop leading and trailing spaces.
     if (urlToOpen == '') {
-      console.log("Invalid URL, omitting");
+      console.log('Invalid URL, omitting');
     } else {
-      urlToOpen = getStringDropLastCharacterIfMatched(urlToOpen, "/");
+      urlToOpen = getStringDropLastCharacterIfMatched(urlToOpen, '/');
       urlToOpen = getUrlWithProtocol(urlToOpen);
       if (openAllPaths === true) {
         let urlsPaths = getUrlsWithPaths(urlToOpen)
@@ -89,9 +90,31 @@ function sleepMs(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// https://www.discoduroderoer.es/como-crear-una-lista-html-en-javascript-con-dom/
+function showUrlsOpened(urls) {
+    unhideUrlsOpened();
+    let ol = document.createElement('ol');
+    document.getElementById('open-urls-list').innerHTML = '';
+    for (let url of urls) {
+      let li = document.createElement('li');
+      let liText = document.createTextNode(url);
+      li.appendChild(liText);
+      ol.appendChild(li);
+    }
+    document.getElementById('open-urls-list').appendChild(ol);
+}
+
 function cleanUrlsInput() {
   console.log('Init clean URLs input');
   let element = document.getElementById('urls-input');
-  element.value = "";
+  element.value = '';
+  hideUrlsOpened();
 }
 
+function hideUrlsOpened() {
+  document.getElementById('open-urls-section').classList.add('hidden');
+}
+
+function unhideUrlsOpened() {
+  document.getElementById('open-urls-section').classList.remove('hidden');
+}

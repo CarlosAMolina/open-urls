@@ -20,6 +20,12 @@ input[type="checkbox"]:checked {
   box-shadow: 0 0 0 3px var(--YELLOW-COLOR);
 }
 
+.configuration {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
 .delay-ui {
   display: flex;
   justify-content: space-between;

@@ -1,12 +1,11 @@
 function openUrlsInput() {
   console.log("Init open URLs");
-  let openAllPaths = false;
-  if (document.querySelector(`#open-urls-paths-bool`).checked == true) {
-    console.log("Init open URLs all paths");
-    openAllPaths = true;
-  }
+  let openAllPaths = document.querySelector(`#open-urls-paths-bool`).checked == true;
+  console.log(`Configuration. Open URLs all paths: ${openAllPaths}`);
   let urls = getUrlsToOpen(openAllPaths);
-  openUrls(urls);
+  let delayMs = getDelayMsOpenUrls();
+  console.log(`Configuration. Open URLs delay: ${delayMs} ms`);
+  openUrls(urls, delayMs);
 };
 
 function getUrlsToOpen(openAllPaths) {
@@ -67,24 +66,22 @@ function getUrlsWithPaths(url){
   return result;
 }
 
-async function openUrls(urls) {
-  let urlsLength = urls.length;
-  let delay_ms = getDelayMsOpenUrls();
-  console.log(`Open URLs delay: ${delay_ms} ms`);
-  for (var i = 0; i < urlsLength; i++) {
-    var url = urls[i];
-    console.log(`Init URL ${i+1}/${urlsLength}: '${url}'`);
-    if (i != 0) {
-      await sleepMs(delay_ms);
-    }
-    // TODO window.open(url);
-  }
-}
-
 function getDelayMsOpenUrls() {
   let delay_s = document.querySelector(`#delay-input`).valueAsNumber;
   let result = delay_s * 1000;
   return result;
+}
+
+async function openUrls(urls, delayMs) {
+  let urlsLength = urls.length;
+  for (var i = 0; i < urlsLength; i++) {
+    var url = urls[i];
+    console.log(`Init URL ${i+1}/${urlsLength}: '${url}'`);
+    if (i != 0) {
+      await sleepMs(delayMs);
+    }
+    // TODO window.open(url);
+  }
 }
 
 // https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep

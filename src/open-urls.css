@@ -1,7 +1,7 @@
 /*
-@import url("/tmp/common-sections.css");
-*/
 @import url("../../../common-sections.css");
+*/
+@import url("/tmp/common-sections.css");
 
 
 button {
@@ -31,31 +31,3 @@ textarea {
   display: flex;
   flex-direction: column;
 }
-
-/* Button on off
-
-https://www.scriptol.com/html5/button-on-off.php
-*/
-.buttonOnOff {
-  width:32px;
-  height:32px;
-  padding:1px 2px 3px 3px;
-  font-size:12px;
-  background:lightgray;
-  text-align:center;
-  cursor: pointer;
-}
-.buttonOnOff div {
-  width:18px;
-  height:18px;
-  min-height:18px;
-  background:lightgray;
-  overflow:hidden;
-  border-top:1px solid gray;
-  border-right:1px solid white;
-  border-bottom:1px solid white;
-  border-left:1px solid gray;
-  margin:0 auto;
-  color:gray;
-}
-

@@ -1,6 +1,6 @@
 function openUrlsInput() {
   console.log("Init open URLs");
-  let openAllPaths = document.querySelector(`#open-urls-paths-bool`).checked == true;
+  let openAllPaths = document.querySelector(`#open-all-paths`).checked == true;
   console.log(`Configuration. Open URLs all paths: ${openAllPaths}`);
   let urls = getUrlsToOpen(openAllPaths);
   let delayMs = getDelayMsOpenUrls();
@@ -93,19 +93,5 @@ function cleanUrlsInput() {
   console.log('Init clean URLs input');
   let element = document.querySelector(`#urls-input`);
   element.value = "";
-}
-
-function runOpenUrlsPathsBool(element) {
-  if (element.checked == true) {
-    element.style.background = 'gray';
-    element.style.color = 'lightgray';
-    element.textContent = 'off';
-    element.checked = false;
-  } else {
-    element.style.background = 'green';
-    element.style.color = 'lightgreen';
-    element.textContent = 'on';
-    element.checked = true;
-  }
 }
 

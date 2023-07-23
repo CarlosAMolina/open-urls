@@ -42,9 +42,10 @@
           <p>Delay to use between openning each tab (seconds):</p>
           <input id="delay-input" type="number" value="0" step="0.5" min="0" />
         </div>
-        <div class="delay-ui">
-          <p>Open all paths. Example `foo.com/bar/file.txt` will open `foo.com/bar/file.txt`, `foo.com/bar` and `foo.com`.</p>
-          <button id="open-urls-paths-bool" class="buttonOnOff" onClick="runOpenUrlsPathsBool(this)"><div>off</div></button>
+        <div>
+          <label>
+              <input type="checkbox" id="open-all-paths"> Open all paths. Example `a.com/b/c.txt` will open `https://a.com/b/c.txt`, `https://a.com/b` and `https://a.com`.
+          </label>
         </div>
       </div>
     </div>

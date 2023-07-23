@@ -1,6 +1,6 @@
 function openUrlsInput() {
   console.log("Init open URLs");
-  let openAllPaths = document.querySelector(`#open-all-paths`).checked == true;
+  let openAllPaths = document.getElementById('open-all-paths').checked == true;
   console.log(`Configuration. Open URLs all paths: ${openAllPaths}`);
   let urls = getUrlsToOpen(openAllPaths);
   let delayMs = getDelayMsOpenUrls();
@@ -9,7 +9,7 @@ function openUrlsInput() {
 };
 
 function getUrlsToOpen(openAllPaths) {
-  let element = document.querySelector(`#urls-input`);
+  let element = document.getElementById('urls-input');
   let urlsInput = element.value.split('\n');
   let result = [];
   for (let url of urlsInput) {
@@ -67,7 +67,7 @@ function getUrlsWithPaths(url){
 }
 
 function getDelayMsOpenUrls() {
-  let delay_s = document.querySelector(`#delay-input`).valueAsNumber;
+  let delay_s = document.getElementById('delay-input').valueAsNumber;
   let result = delay_s * 1000;
   return result;
 }
@@ -91,7 +91,7 @@ function sleepMs(ms) {
 
 function cleanUrlsInput() {
   console.log('Init clean URLs input');
-  let element = document.querySelector(`#urls-input`);
+  let element = document.getElementById('urls-input');
   element.value = "";
 }
 

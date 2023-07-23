@@ -35,8 +35,8 @@
           id="urls-input"
           rows="10"
         >https://es.wikipedia.org/wiki/JavaScript&#10;duckduckgo.com</textarea>
-        <button id="open-urls" title="Open URLs">Open URLs</button>
-        <button id="clean-urls-input" title="Clean URLs input">Clean URLs input</button>
+        <button id="open-urls" title="Open URLs" onClick="openUrlsInput()">Open URLs</button>
+        <button id="clean-urls-input" title="Clean URLs input" onClick="cleanUrlsInput()">Clean URLs input</button>
         <h2>Configuration</h2>
         <div class="delay-ui">
           <p>Delay to use between openning each tab (seconds):</p>
@@ -44,7 +44,7 @@
         </div>
         <div class="delay-ui">
           <p>Open all paths. Example `foo.com/bar/file.txt` will open `foo.com/bar/file.txt`, `foo.com/bar` and `foo.com`.</p>
-          <button id="open-urls-paths-bool" class="buttonOnOff" onClick="run_open_urls_paths_bool(this)"><div>off</div></button>
+          <button id="open-urls-paths-bool" class="buttonOnOff" onClick="runOpenUrlsPathsBool(this)"><div>off</div></button>
         </div>
       </div>
     </div>

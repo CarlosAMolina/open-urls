@@ -1,27 +1,13 @@
-document.addEventListener('click', (eventClick) => {
-  let targetId = eventClick.target.id;
-  if (targetId == "open-urls") {
-      if (document.querySelector(`#open-urls-paths-bool`).checked == true) {
-        openUrlsInputAllPaths();
-      } else {
-        openUrlsInput();
-      }
-  } else if (targetId == "clean-urls-input" ) {
-    cleanUrlsInput();
-  }
-});
-
 function openUrlsInput() {
   console.log("Init open URLs");
-  let urls = getUrlsToOpen(false)
+  let openAllPaths = false;
+  if (document.querySelector(`#open-urls-paths-bool`).checked == true) {
+    console.log("Init open URLs all paths");
+    openAllPaths = true;
+  }
+  let urls = getUrlsToOpen(openAllPaths)
   openUrls(urls);
-}
-
-function openUrlsInputAllPaths() {
-  console.log("Init open URLs all paths");
-  let urls = getUrlsToOpen(true)
-  openUrls(urls);
-}
+};
 
 function getUrlsToOpen(openAllPaths) {
   let element = document.querySelector(`#urls-input`);
@@ -124,7 +110,7 @@ function cleanUrlsInput() {
   element.value = "";
 }
 
-function run_open_urls_paths_bool(element) {
+function runOpenUrlsPathsBool(element) {
   if (element.checked == true) {
     element.style.background = 'gray';
     element.style.color = 'lightgray';

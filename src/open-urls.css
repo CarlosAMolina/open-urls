@@ -26,7 +26,7 @@ button {
   row-gap: 10px;
 }
 
-.delay-ui {
+.delay-section-with-input {
   display: flex;
   justify-content: space-between;
 }

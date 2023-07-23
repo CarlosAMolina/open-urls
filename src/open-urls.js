@@ -126,7 +126,7 @@ function unhideUrlsOpened() {
 function runDelayCheckbox() {
   if (document.getElementById('delay-checkbox').checked == true) {
     document.getElementById('delay-input').classList.remove('hidden');
-    document.getElementById('delay-checkbox-section').classList.add('delay-ui');
+    document.getElementById('delay-checkbox-section').classList.add('delay-section-with-input');
   } else {
     document.getElementById('delay-input').classList.add('hidden');
   }

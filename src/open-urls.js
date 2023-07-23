@@ -5,7 +5,7 @@ function openUrlsInput() {
     console.log("Init open URLs all paths");
     openAllPaths = true;
   }
-  let urls = getUrlsToOpen(openAllPaths)
+  let urls = getUrlsToOpen(openAllPaths);
   openUrls(urls);
 };
 
@@ -15,10 +15,10 @@ function getUrlsToOpen(openAllPaths) {
   let result = [];
   for (let url of urlsInput) {
     console.log(`Init manage url input: ${url}`);
-    if (url == '') {
+    let urlToOpen = url.trim(); // Drop leading and trailing spaces.
+    if (urlToOpen == '') {
       console.log("Invalid URL, omitting");
     } else {
-      let urlToOpen = string.trim(); // Drop leading and trailing spaces
       urlToOpen = getStringDropLastCharacterIfMatched(urlToOpen, "/");
       urlToOpen = getUrlWithProtocol(urlToOpen);
       if (openAllPaths === true) {
@@ -68,36 +68,28 @@ function getUrlsWithPaths(url){
 }
 
 async function openUrls(urls) {
-  let delay_s = document.querySelector(`#delay-input`).valueAsNumber;
-  let delay_ms = delay_s * 1000;
   let urlsLength = urls.length;
+  let delay_ms = getDelayMsOpenUrls();
+  console.log(`Open URLs delay: ${delay_ms} ms`);
   for (var i = 0; i < urlsLength; i++) {
     var url = urls[i];
     console.log(`Init URL ${i+1}/${urlsLength}: '${url}'`);
     if (i != 0) {
       await sleepMs(delay_ms);
     }
-    openUrl(url);
+    // TODO window.open(url);
   }
+}
+
+function getDelayMsOpenUrls() {
+  let delay_s = document.querySelector(`#delay-input`).valueAsNumber;
+  let result = delay_s * 1000;
+  return result;
 }
 
 // https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 function sleepMs(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-/* Open an url and catches possible exception.
-https://developer.mozilla.org/en-US/docs/Web/API/Window/open
-:param url: str, url to check.
-:return null.
-*/
-function openUrl(url){
-  try{
-    window.open(url);
-  }
-  catch(error){
-    console.error(error);
-  }
 }
 
 function cleanUrlsInput() {

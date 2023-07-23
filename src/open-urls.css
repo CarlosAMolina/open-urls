@@ -3,14 +3,6 @@
 */
 @import url("/tmp/common-sections.css");
 
-
-button {
-  border-right-color: var(--BUTTON-COLOR);
-  border-left-color: var(--BUTTON-COLOR);
-  border-bottom: 1px solid var(--BACKGROUND-COLOR);
-  border-top: 1px solid var(--BACKGROUND-COLOR);
-}
-
 textarea {
   flex-grow: 1;
   resize: vertical;
@@ -24,7 +16,7 @@ input[type="checkbox"]:checked {
   box-shadow: 0 0 0 3px var(--YELLOW-COLOR);
 }
 
-.configuration {
+.configuration-options {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
@@ -44,4 +36,5 @@ input[type="checkbox"]:checked {
   flex: 0 1 700px;
   display: flex;
   flex-direction: column;
+  row-gap: 5px;
 }

@@ -47,7 +47,3 @@ button {
   row-gap: 5px;
 }
 
-.open-urls-section {
-  display: flex;
-  flex-direction: column;
-}

@@ -96,6 +96,7 @@ function sleepMs(ms) {
 
 // https://www.discoduroderoer.es/como-crear-una-lista-html-en-javascript-con-dom/
 function showUrlsOpened(urls) {
+  if (urls.length > 0) {
     unhideUrlsOpened();
     let ol = document.createElement('ol');
     document.getElementById('open-urls-list').innerHTML = '';
@@ -106,6 +107,7 @@ function showUrlsOpened(urls) {
       ol.appendChild(li);
     }
     document.getElementById('open-urls-list').appendChild(ol);
+  }
 }
 
 function cleanUrlsInput() {

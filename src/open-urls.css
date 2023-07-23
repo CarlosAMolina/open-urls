@@ -16,6 +16,10 @@ textarea {
   resize: vertical;
 }
 
+input[type="checkbox"]:checked {
+  box-shadow: 0 0 0 3px var(--YELLOW-COLOR);
+}
+
 .delay-ui {
   display: flex;
   justify-content: space-between;

@@ -68,9 +68,13 @@ function getUrlsWithPaths(url){
 }
 
 function getDelayMsOpenUrls() {
-  let delay_s = document.getElementById('delay-input').valueAsNumber;
-  let result = delay_s * 1000;
-  return result;
+  if (document.getElementById('delay-checkbox').checked == false) {
+    return 0;
+  } else {
+    let delay_s = document.getElementById('delay-input').valueAsNumber;
+    let result = delay_s * 1000;
+    return result;
+  }
 }
 
 async function openUrls(urls, delayMs) {
@@ -117,4 +121,13 @@ function hideUrlsOpened() {
 
 function unhideUrlsOpened() {
   document.getElementById('open-urls-section').classList.remove('hidden');
+}
+
+function runDelayCheckbox() {
+  if (document.getElementById('delay-checkbox').checked == true) {
+    document.getElementById('delay-input').classList.remove('hidden');
+    document.getElementById('delay-checkbox-section').classList.add('delay-ui');
+  } else {
+    document.getElementById('delay-input').classList.add('hidden');
+  }
 }

@@ -93,7 +93,7 @@ async function openUrls(urls, delayMs) {
     if (i != 0) {
       await sleepMs(delayMs);
     }
-    // TODO window.open(url);
+    window.open(url);
   }
 }
 

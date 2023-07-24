@@ -11,7 +11,16 @@ function openUrlsInput() {
 
 function getUrlsToOpen(openAllPaths) {
   let element = document.getElementById('urls-input');
-  let urlsInput = element.value.split('\n');
+  const input = element.value;
+  let urlsInput;
+  // TODO
+  if (false) {
+    urlsInput = input.split('\n');
+  } else {
+    // https://regexr.com/37i6s
+    const regexp = /[^(\s|\[|\])]*\w*\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+    urlsInput = Array.from(input.matchAll(regexp), (m) => m[0]);
+  }
   let result = [];
   for (let url of urlsInput) {
     console.log(`Init manage url input: ${url}`);
@@ -85,7 +94,7 @@ async function openUrls(urls, delayMs) {
     if (i != 0) {
       await sleepMs(delayMs);
     }
-    window.open(url);
+    // TODO window.open(url);
   }
 }
 

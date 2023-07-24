@@ -13,8 +13,7 @@ function getUrlsToOpen(openAllPaths) {
   let element = document.getElementById('urls-input');
   const input = element.value;
   let urlsInput;
-  // TODO
-  if (false) {
+  if (document.getElementById('one-per-line').checked == true) {
     urlsInput = input.split('\n');
   } else {
     // https://regexr.com/37i6s

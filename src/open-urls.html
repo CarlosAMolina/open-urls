@@ -49,7 +49,7 @@
               <div>
                 <input type="checkbox" id="delay-checkbox" onClick="runDelayCheckbox()">
                 <label for="delay-checkbox">
-                  Set the delay between opening of each tab (seconds)
+                  Set the delay between opening of each tab (seconds).
                 </label>
               </div>
               <div>
@@ -61,6 +61,19 @@
               <label for="open-all-paths">
                   Open all paths. Example &#8245a.com/b/c.txt&#8245 will open &#8245https://a.com/b/c.txt&#8245, &#8245https://a.com/b&#8245 and &#8245https://a.com&#8245.
               </label>
+            </div>
+            <div>
+              <fieldset>
+                <legend>How the URLs have been written:</legend>
+                <div>
+                  <input type="radio" id="one-per-line" name="urls-input-type" value="one-per-line" checked>
+                  <label for="one-per-line">One URL per line.</label>
+                </div>
+                <div>
+                  <input type="radio" id="multiple-in-text" name="urls-input-type" value="multiple-in-text">
+                  <label for="multiple-in-text">URLs in different parts of the given text. You can insert text that does not only contain URLS and they will be automatically detected.</label>
+                </div>
+              </fieldset>
             </div>
           </div>
         </div>

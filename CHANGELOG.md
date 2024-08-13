@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.3.1] - 2024-08-13
 ### Change
-- Update CSS path and home svg to work with the changes of the main web page.
+- CSS and svg image:
+  - Use the URL of the main web page instead of relative paths.
+  - Drop deprecated or duplicated code.
 
 ## [0.3.0] - 2023-07-25
 ### Added

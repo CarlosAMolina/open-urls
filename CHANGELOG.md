@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.1] - 2024-08-13
+### Change
+- Update CSS path to work with the changes of the main web page.
+
 ## [0.3.0] - 2023-07-25
 ### Added
 - Configuration option to insert text that does not only contain URLs and they will be automatically detected.

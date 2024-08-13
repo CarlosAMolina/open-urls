@@ -1,7 +1,7 @@
 /*
 @import url("/tmp/common-sections.css");
 */
-@import url("../../../common-sections.css");
+@import url("../../../base.css");
 
 textarea {
   flex-grow: 1;

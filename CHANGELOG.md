@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - CSS and svg image:
   - Use the URL of the main web page instead of relative paths.
   - Drop deprecated or duplicated code.
+  - Update with the main web page style.
 
 ## [0.3.0] - 2023-07-25
 ### Added
